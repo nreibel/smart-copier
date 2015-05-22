@@ -1,0 +1,20 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <name>SmartCopier</name>
+  <description>Library for files move or sync</description>
+  <groupId>com.github.nreibel.smartcopier</groupId>
+  <artifactId>smart-copier</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+  
+  <dependencies>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.7.2</version>
+    </dependency>
+  </dependencies>
+  
+</project>
