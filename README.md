@@ -2,8 +2,7 @@
 Java library for copying and syncing folders
 
 ## Usage
-<code>
-```
+````java
 File copyFrom = new File("path/to/source/folder");
 File copyTo = new File("path/to/destination/folder");
 
@@ -15,5 +14,4 @@ IUpdatePolicy policy = new UpdateIfHashDifferentPolicy();
 
 SmartCopier sc = new SmartCopier(copyFrom, copyTo);
 sc.setVisitor(visitor).setUpdatePolicy(policy).start();
-```
-</code>
+````
