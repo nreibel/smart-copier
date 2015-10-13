@@ -6,7 +6,7 @@
   <description>Library for files move or sync</description>
   <groupId>com.github.nreibel</groupId>
   <artifactId>smart-copier</artifactId>
-  <version>1.1.0</version>
+  <version>1.1.1</version>
   <packaging>jar</packaging>
   
   <dependencies>

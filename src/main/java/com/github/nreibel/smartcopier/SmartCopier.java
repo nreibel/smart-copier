@@ -47,10 +47,10 @@ public class SmartCopier {
 	}
 
 	public void start() throws IOException {
-		visit(from, to);
+		visit(from, to, filter);
 	}
 
-	private void visit(File oldFile, File newFile) throws IOException {
+	private void visit(File oldFile, File newFile, FileFilter filter) throws IOException {
 		
 		if (!oldFile.isDirectory()) throw new NotADirectoryException(oldFile);
 		
@@ -58,7 +58,7 @@ public class SmartCopier {
 
 		// Find deleted files
 		if (newFile.isDirectory() && newFile.exists()) {
-			for (File dst : newFile.listFiles(filter)) {
+			for (File dst : newFile.listFiles()) {
 				File src = new File(oldFile, dst.getName());
 				if (!src.exists()) {
 					LOGGER.debug(dst + " deleted");
@@ -77,7 +77,7 @@ public class SmartCopier {
 				visitor.fileAdded(src, dst);
 			}
 			else if (src.isDirectory()) {
-				visit(src, dst);
+				visit(src, dst, null);
 			}
 			else {
 				boolean updated = policy.checkDoUpdate(src, dst);
