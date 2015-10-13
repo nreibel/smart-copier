@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -23,24 +24,16 @@ public class UpdateIfHashDifferentPolicy implements IUpdatePolicy {
 	}
 
 	private static byte[] createChecksum(File f) throws IOException, NoSuchAlgorithmException {
-		InputStream fis =  new FileInputStream(f);
-		byte[] buffer = new byte[1024];
-		MessageDigest complete = null;
+		InputStream fis = new FileInputStream(f);
 
 		try {
-			complete = MessageDigest.getInstance("SHA-256");
-
-			int numRead;
-			do {
-				numRead = fis.read(buffer);
-				if (numRead > 0) complete.update(buffer, 0, numRead);
-			} while (numRead != -1);
-
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			fis = new DigestInputStream(fis, md);
+			while (fis.read() >= 0);
+			return md.digest();
 		}
 		finally {
 			fis.close();
 		}
-
-		return complete.digest();
 	}
 }

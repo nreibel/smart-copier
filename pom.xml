@@ -6,15 +6,23 @@
   <description>Library for files move or sync</description>
   <groupId>com.github.nreibel</groupId>
   <artifactId>smart-copier</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
   <packaging>jar</packaging>
   
   <dependencies>
+  
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.4</version>
+    </dependency>
+
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
       <version>1.7.2</version>
     </dependency>
+    
   </dependencies>
   
 </project>

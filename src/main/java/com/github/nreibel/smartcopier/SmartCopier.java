@@ -28,7 +28,7 @@ public class SmartCopier {
 		this.from = from;
 		this.to = to;
 		this.visitor = new DefaultSmartVisitor();
-		this.policy = new DefaultUpdatePolicy();
+		this.policy = new DefaultUpdatePolicy(true);
 	}
 
 	public SmartCopier setUpdatePolicy(IUpdatePolicy algorythm) {
